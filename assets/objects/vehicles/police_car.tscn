@@ -65,8 +65,9 @@ node_b = NodePath("..")
 softness = 0.03
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 177.032, -39.7114 )
+position = Vector2( 524.957, -219.245 )
 current = true
+zoom = Vector2( 1.75, 1.75 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 24.5183, 6.80332 )

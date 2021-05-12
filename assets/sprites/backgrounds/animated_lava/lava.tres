@@ -1,24 +1,15 @@
 [gd_resource type="TileSet" load_steps=3 format=2]
 
-[ext_resource path="res://assets/sprites/backgrounds/animated_lava_surface.tres" type="Texture" id=1]
-[ext_resource path="res://assets/sprites/backgrounds/lava-deep.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/backgrounds/animated_lava/animated_lava.tres" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/backgrounds/animated_lava/Tile_28.png" type="Texture" id=2]
 
 [resource]
-0/name = "animated_lava_surface.tres 0"
+0/name = "animated_lava.tres 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 256, 256 )
-0/tile_mode = 1
-0/autotile/bitmask_mode = 0
-0/autotile/bitmask_flags = [  ]
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 256, 256 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
+0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
@@ -27,7 +18,7 @@
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "lava-deep.png 1"
+1/name = "Tile_28.png 1"
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
