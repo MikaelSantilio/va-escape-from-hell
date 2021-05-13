@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=1]
 [ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://assets/sprites/grounds/ground1-256x256.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/edges/edge2.png" type="Texture" id=10]
 [ext_resource path="res://assets/objects/vehicles/police_car.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/sprites/backgrounds/animated_lava_surface_tile.tres" type="TileSet" id=12]
+[ext_resource path="res://assets/sprites/backgrounds/animated_lava/lava.tres" type="TileSet" id=12]
+[ext_resource path="res://assets/sprites/backgrounds/background_1.png" type="Texture" id=13]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
@@ -196,20 +197,27 @@ extents = Vector2( 1029.01, 299.616 )
 [node name="TestLevel" type="Node2D"]
 position = Vector2( 31210.6, 301.465 )
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -18967.4, -2315.36 )
+motion_mirroring = Vector2( 1536, 0 )
+
+[node name="background_1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 21806.8, -3010.79 )
+texture = ExtResource( 13 )
+centered = false
+
 [node name="car" parent="." instance=ExtResource( 11 )]
 position = Vector2( -27757.6, -4474.45 )
-gravity_scale = 4.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -14375.7, -548.816 )
 
 [node name="SS2D_Shape_Closed" type="Node2D" parent="StaticBody2D"]
 script = ExtResource( 8 )
-editor_debug = false
-curve_bake_interval = 20.0
 _points = SubResource( 19 )
 material_overrides = {
-
 }
 shape_material = SubResource( 23 )
 tessellation_stages = 5
@@ -223,7 +231,7 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
 modulate = Color( 1, 1, 1, 0.3 )
-polygon = PoolVector2Array( 2046.26, -2259.58, 2160.92, -2251.17, 2269.94, -2232.79, 2373.7, -2205.18, 2472.59, -2169.05, 2566.99, -2125.15, 2657.29, -2074.2, 2827.1, -1954.09, 2985.05, -1814.56, 3134.22, -1661.46, 3418.47, -1337.95, 3704.33, -1030.35, 3855.5, -897.124, 4016.24, -785.408, 4101.15, -739.438, 4189.61, -701.049, 4281.98, -670.962, 4378.67, -649.907, 4480.04, -638.614, 4586.49, -637.814, 4698.38, -648.239, 4816.12, -670.605, 4935.6, -692.206, 5052.58, -700.341, 5167.21, -695.956, 5279.65, -679.974, 5390.05, -653.318, 5498.57, -616.922, 5710.55, -518.552, 5916.82, -392.234, 6118.62, -245.372, 6905.59, 399.967, 7103.42, 538.872, 7304.13, 654.051, 7405.95, 700.44, 7508.96, 738.12, 7613.3, 766.176, 7719.13, 783.687, 7826.6, 789.731, 7935.86, 783.386, 8047.07, 763.729, 8160.39, 729.84, 8631.97, 531.139, 9115.89, 281.472, 10028, -275.249, 10991.7, -959.225, 8766.68, 1140.21, -13277.8, 826.402, -13824.7, -3542.81, -8497.41, -2009.23, -4423.35, -1065.93, -2785.39, -831.458, -2160.21, -808.764, -1907.83, -825.463, -1700.06, -862.537, -1025.97, -1069.95, -461.537, -1300.12, 440.09, -1764.45, 828.123, -1966.52, 1208.21, -2127.11, 1403.22, -2186.82, 1605.79, -2230.14, 1819.07, -2255.06 )
+polygon = PoolVector2Array( 2046.26, -2259.58, 2160.92, -2251.17, 2269.94, -2232.79, 2373.7, -2205.18, 2472.59, -2169.05, 2566.99, -2125.15, 2657.29, -2074.2, 2827.1, -1954.09, 2985.05, -1814.56, 3134.22, -1661.46, 3418.47, -1337.95, 3704.33, -1030.35, 3855.5, -897.124, 4016.24, -785.408, 4101.15, -739.438, 4189.61, -701.049, 4281.98, -670.962, 4378.67, -649.907, 4480.04, -638.614, 4586.49, -637.814, 4698.38, -648.239, 4816.12, -670.605, 4935.6, -692.206, 5052.58, -700.341, 5167.21, -695.956, 5279.65, -679.974, 5390.05, -653.318, 5498.57, -616.922, 5710.55, -518.552, 5916.82, -392.234, 6118.62, -245.372, 6905.59, 399.967, 7103.42, 538.872, 7304.13, 654.051, 7405.95, 700.44, 7508.96, 738.12, 7613.3, 766.176, 7719.12, 783.687, 7826.6, 789.731, 7935.86, 783.386, 8047.07, 763.729, 8160.39, 729.84, 8631.97, 531.139, 9115.89, 281.472, 10028, -275.249, 10991.7, -959.225, 8766.68, 1140.21, -13277.8, 826.402, -13824.7, -3542.81, -8497.41, -2009.23, -4423.35, -1065.93, -2785.39, -831.458, -2160.21, -808.764, -1907.83, -825.463, -1700.06, -862.537, -1025.97, -1069.95, -461.537, -1300.12, 440.09, -1764.45, 828.123, -1966.52, 1208.21, -2127.11, 1403.22, -2186.82, 1605.79, -2230.14, 1819.07, -2255.06 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 12 )
