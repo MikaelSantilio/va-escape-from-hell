@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=1]
 [ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=2]
@@ -12,136 +12,137 @@
 [ext_resource path="res://assets/sprites/edges/edge2.png" type="Texture" id=10]
 [ext_resource path="res://assets/objects/vehicles/jeep.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sprites/backgrounds/animated_lava/lava.tres" type="TileSet" id=12]
+[ext_resource path="res://assets/sounds/musics/scooby_doo_01.mp3" type="AudioStream" id=13]
 
-[sub_resource type="Resource" id=25]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 texture_idx = 13
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=26]
+[sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
 position = Vector2( 2046.26, -2259.56 )
 point_in = Vector2( -1254.4, -33.9028 )
 point_out = Vector2( 1254.4, 33.9028 )
-properties = SubResource( 25 )
+properties = SubResource( 1 )
 
-[sub_resource type="Resource" id=27]
+[sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
 texture_idx = 6
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=28]
+[sub_resource type="Resource" id=4]
 script = ExtResource( 6 )
 position = Vector2( 10980.2, -949.792 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
-properties = SubResource( 27 )
+properties = SubResource( 3 )
 
-[sub_resource type="Resource" id=29]
+[sub_resource type="Resource" id=5]
 script = ExtResource( 2 )
 texture_idx = 7
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=30]
+[sub_resource type="Resource" id=6]
 script = ExtResource( 6 )
 position = Vector2( 8766.25, 1139.12 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
-properties = SubResource( 29 )
+properties = SubResource( 5 )
 
-[sub_resource type="Resource" id=31]
+[sub_resource type="Resource" id=7]
 script = ExtResource( 2 )
 texture_idx = 13
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=32]
+[sub_resource type="Resource" id=8]
 script = ExtResource( 6 )
 position = Vector2( 2046.26, -2259.56 )
 point_in = Vector2( -1254.4, -33.9028 )
 point_out = Vector2( 1254.4, 33.9028 )
-properties = SubResource( 31 )
+properties = SubResource( 7 )
 
-[sub_resource type="Resource" id=33]
+[sub_resource type="Resource" id=9]
 script = ExtResource( 2 )
 texture_idx = 7
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=34]
+[sub_resource type="Resource" id=10]
 script = ExtResource( 6 )
 position = Vector2( -13275.2, 823.474 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
-properties = SubResource( 33 )
+properties = SubResource( 9 )
 
-[sub_resource type="Resource" id=35]
+[sub_resource type="Resource" id=11]
 script = ExtResource( 2 )
 texture_idx = -3
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=36]
+[sub_resource type="Resource" id=12]
 script = ExtResource( 6 )
 position = Vector2( -13820, -3537.35 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
-properties = SubResource( 35 )
+properties = SubResource( 11 )
 
-[sub_resource type="Resource" id=37]
+[sub_resource type="Resource" id=13]
 script = ExtResource( 2 )
 texture_idx = -11
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=38]
+[sub_resource type="Resource" id=14]
 script = ExtResource( 6 )
 position = Vector2( -1700.05, -862.508 )
 point_in = Vector2( -1966.36, 508.542 )
 point_out = Vector2( 1966.36, -508.542 )
-properties = SubResource( 37 )
+properties = SubResource( 13 )
 
-[sub_resource type="Resource" id=39]
+[sub_resource type="Resource" id=15]
 script = ExtResource( 2 )
 texture_idx = 0
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=40]
+[sub_resource type="Resource" id=16]
 script = ExtResource( 6 )
 position = Vector2( 4816.12, -670.605 )
 point_in = Vector2( -1288.31, 305.125 )
 point_out = Vector2( 1288.31, -305.125 )
-properties = SubResource( 39 )
+properties = SubResource( 15 )
 
-[sub_resource type="Resource" id=41]
+[sub_resource type="Resource" id=17]
 script = ExtResource( 2 )
 texture_idx = 0
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=42]
+[sub_resource type="Resource" id=18]
 script = ExtResource( 6 )
 position = Vector2( 8160.4, 729.862 )
 point_in = Vector2( -1220.5, 440.736 )
 point_out = Vector2( 1220.5, -440.736 )
-properties = SubResource( 41 )
+properties = SubResource( 17 )
 
-[sub_resource type="Resource" id=43]
+[sub_resource type="Resource" id=19]
 script = ExtResource( 1 )
 _points = {
-0: SubResource( 26 ),
-1: SubResource( 28 ),
-2: SubResource( 30 ),
-3: SubResource( 32 ),
-4: SubResource( 34 ),
-5: SubResource( 36 ),
-6: SubResource( 38 ),
-7: SubResource( 40 ),
-8: SubResource( 42 )
+0: SubResource( 2 ),
+1: SubResource( 4 ),
+2: SubResource( 6 ),
+3: SubResource( 8 ),
+4: SubResource( 10 ),
+5: SubResource( 12 ),
+6: SubResource( 14 ),
+7: SubResource( 16 ),
+8: SubResource( 18 )
 }
 _point_order = [ 0, 7, 8, 1, 2, 4, 5, 6, 3 ]
 _constraints = {
@@ -201,7 +202,7 @@ position = Vector2( -14375.7, -548.816 )
 
 [node name="SS2D_Shape_Closed" type="Node2D" parent="StaticBody2D"]
 script = ExtResource( 8 )
-_points = SubResource( 43 )
+_points = SubResource( 19 )
 material_overrides = {
 }
 shape_material = SubResource( 23 )
@@ -216,7 +217,7 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
 modulate = Color( 1, 1, 1, 0.3 )
-polygon = PoolVector2Array( 2046.26, -2259.58, 2160.92, -2251.17, 2269.94, -2232.79, 2373.7, -2205.18, 2472.59, -2169.05, 2566.99, -2125.15, 2657.29, -2074.2, 2827.1, -1954.09, 2985.05, -1814.56, 3134.22, -1661.46, 3418.47, -1337.95, 3704.33, -1030.35, 3855.5, -897.124, 4016.24, -785.408, 4101.15, -739.438, 4189.61, -701.049, 4281.98, -670.962, 4378.67, -649.907, 4480.04, -638.614, 4586.49, -637.814, 4698.38, -648.239, 4816.12, -670.605, 4935.6, -692.206, 5052.58, -700.341, 5167.21, -695.956, 5279.65, -679.974, 5390.05, -653.318, 5498.57, -616.922, 5710.55, -518.552, 5916.82, -392.234, 6118.62, -245.372, 6905.59, 399.967, 7103.42, 538.872, 7304.13, 654.051, 7405.95, 700.44, 7508.96, 738.12, 7613.3, 766.176, 7719.12, 783.687, 7826.6, 789.731, 7935.86, 783.386, 8047.07, 763.729, 8160.39, 729.84, 8631.97, 531.139, 9115.89, 281.472, 10028, -275.249, 10991.7, -959.225, 8766.68, 1140.21, -13277.8, 826.402, -13824.7, -3542.81, -8497.41, -2009.23, -4423.35, -1065.93, -2785.39, -831.458, -2160.21, -808.764, -1907.83, -825.463, -1700.06, -862.537, -1025.97, -1069.95, -461.537, -1300.12, 440.09, -1764.45, 828.123, -1966.52, 1208.21, -2127.11, 1403.22, -2186.82, 1605.79, -2230.14, 1819.07, -2255.06 )
+polygon = PoolVector2Array( 2046.26, -2259.58, 2160.92, -2251.17, 2269.94, -2232.79, 2373.7, -2205.18, 2472.59, -2169.05, 2566.99, -2125.15, 2657.29, -2074.2, 2827.1, -1954.09, 2985.05, -1814.56, 3134.22, -1661.46, 3418.47, -1337.95, 3704.33, -1030.35, 3855.5, -897.124, 4016.24, -785.408, 4101.15, -739.438, 4189.61, -701.049, 4281.98, -670.962, 4378.67, -649.907, 4480.04, -638.614, 4586.49, -637.814, 4698.38, -648.239, 4816.12, -670.605, 4935.6, -692.206, 5052.58, -700.341, 5167.21, -695.956, 5279.65, -679.974, 5390.05, -653.318, 5498.57, -616.922, 5710.55, -518.552, 5916.82, -392.234, 6118.62, -245.372, 6905.59, 399.967, 7103.42, 538.872, 7304.13, 654.051, 7405.95, 700.44, 7508.96, 738.12, 7613.3, 766.176, 7719.13, 783.687, 7826.6, 789.731, 7935.86, 783.386, 8047.07, 763.729, 8160.39, 729.84, 8631.97, 531.139, 9115.89, 281.472, 10028, -275.249, 10991.7, -959.225, 8766.68, 1140.21, -13277.8, 826.402, -13824.7, -3542.81, -8497.41, -2009.23, -4423.35, -1065.93, -2785.39, -831.458, -2160.21, -808.764, -1907.83, -825.463, -1700.06, -862.537, -1025.97, -1069.95, -461.537, -1300.12, 440.09, -1764.45, 828.123, -1966.52, 1208.21, -2127.11, 1403.22, -2186.82, 1605.79, -2230.14, 1819.07, -2255.06 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -101.885, 257.709 )
@@ -239,3 +240,8 @@ shape = SubResource( 24 )
 
 [node name="car" parent="." instance=ExtResource( 11 )]
 position = Vector2( -28019.1, -4204.54 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -20.0
+autoplay = true
