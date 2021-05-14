@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/objects/vehicles/VehicleController.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/vehicles/police/body.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/vehicles/police/wheel.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/vehicles/sport/body.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/vehicles/sport/wheel.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/effects/headlight_2.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -14,7 +14,7 @@ absorbent = true
 rough = true
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 30.0202
+radius = 24.4347
 
 [node name="car" type="RigidBody2D"]
 mass = 300.0
@@ -28,7 +28,7 @@ position = Vector2( 24.5183, 6.80332 )
 texture = ExtResource( 2 )
 
 [node name="r_wheel" type="RigidBody2D" parent="."]
-position = Vector2( 128.491, 61.7525 )
+position = Vector2( 125.5, 29.678 )
 mass = 5.10204
 physics_material_override = SubResource( 2 )
 __meta__ = {
@@ -44,25 +44,27 @@ shape = SubResource( 3 )
 [node name="PinJoint2D" type="PinJoint2D" parent="r_wheel"]
 node_a = NodePath("../..")
 node_b = NodePath("..")
+bias = 0.5
 softness = 0.03
 
 [node name="l_wheel" type="RigidBody2D" parent="."]
-position = Vector2( -80.7523, 56.5085 )
+position = Vector2( -79.2984, 29.6781 )
 mass = 5.10204
 physics_material_override = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="l_wheel"]
-shape = SubResource( 3 )
-
 [node name="Sprite" type="Sprite" parent="l_wheel"]
 texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="l_wheel"]
+shape = SubResource( 3 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="l_wheel"]
 node_a = NodePath("../..")
 node_b = NodePath("..")
+bias = 0.5
 softness = 0.03
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -70,13 +72,13 @@ position = Vector2( 524.957, -219.245 )
 current = true
 zoom = Vector2( 1.75, 1.75 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 24.5183, 6.80332 )
-polygon = PoolVector2Array( -13.9, -38.3, 22.1, -32.3, 22.1, -31, 34.1, -27, 34.1, -25.7, 71.6, -3.6, 75.2, -3.6, 140.1, 5.6, 140.1, 7.4, 149.1, 14.5, 149.1, 22.1, 154, 36.6, 151.7, 36.6, 149.7, 44.6, 147.8, 44.6, 139.7, 50.6, 59, 50.6, -145.1, 41.6, -145.1, 39.3, -152.1, 30.2, -152.1, 18.4, -150.4, 18.4, -146.1, 9, -146.1, -0.700001, -144.8, -8.6, -143.5, -8.6, -138.4, -20.6, -137, -20.6, -122.9, -35.6, -116.2, -35.6, -79.1, -38.5, -79.1, -39.6, -13.9, -39.6 )
-
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 478.109, 8.44511 )
 texture = ExtResource( 4 )
 texture_scale = 0.5
 energy = 1.5
 shadow_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 24.5183, 6.80332 )
+polygon = PoolVector2Array( 9.52829, -34.8726, 20.0801, -30.3054, 35.3567, -23.3758, 42.7587, -19.911, 89.8941, -13.617, 113.106, -8.06914, 125.954, -3.56406, 134.797, 1.44159, 140.93, 9.07107, 138.966, 18.612, 130.828, 25.0661, 122.409, 28.4335, -99.1738, 28.0492, -129.48, 28.0492, -140.985, 27.4879, -146.037, 17.3858, -149.531, -5.7637, -142.456, -21.4355, -134.778, -19.7499, -113.801, -22.9338, -55.6187, -39.0806, -3.70088, -39.9123 )

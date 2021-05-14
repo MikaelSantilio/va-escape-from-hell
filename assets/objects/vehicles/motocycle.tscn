@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/objects/vehicles/VehicleController.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/vehicles/police/body.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/vehicles/police/wheel.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/vehicles/motocycle/body.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/vehicles/motocycle/wheel.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/effects/headlight_2.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -14,21 +14,17 @@ absorbent = true
 rough = true
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 30.0202
+radius = 21.5757
 
-[node name="car" type="RigidBody2D"]
+[node name="vehicle" type="RigidBody2D"]
 mass = 300.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 4.0
 can_sleep = false
 script = ExtResource( 1 )
 
-[node name="body" type="Sprite" parent="."]
-position = Vector2( 24.5183, 6.80332 )
-texture = ExtResource( 2 )
-
 [node name="r_wheel" type="RigidBody2D" parent="."]
-position = Vector2( 128.491, 61.7525 )
+position = Vector2( 80.925, 47.757 )
 mass = 5.10204
 physics_material_override = SubResource( 2 )
 __meta__ = {
@@ -44,35 +40,33 @@ shape = SubResource( 3 )
 [node name="PinJoint2D" type="PinJoint2D" parent="r_wheel"]
 node_a = NodePath("../..")
 node_b = NodePath("..")
-softness = 0.03
 
 [node name="l_wheel" type="RigidBody2D" parent="."]
-position = Vector2( -80.7523, 56.5085 )
+position = Vector2( -21.2766, 47.7574 )
 mass = 5.10204
 physics_material_override = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="l_wheel"]
-shape = SubResource( 3 )
-
 [node name="Sprite" type="Sprite" parent="l_wheel"]
 texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="l_wheel"]
+shape = SubResource( 3 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="l_wheel"]
 node_a = NodePath("../..")
 node_b = NodePath("..")
-softness = 0.03
+
+[node name="body" type="Sprite" parent="."]
+position = Vector2( 24.5183, 6.80332 )
+texture = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 524.957, -219.245 )
 current = true
 zoom = Vector2( 1.75, 1.75 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 24.5183, 6.80332 )
-polygon = PoolVector2Array( -13.9, -38.3, 22.1, -32.3, 22.1, -31, 34.1, -27, 34.1, -25.7, 71.6, -3.6, 75.2, -3.6, 140.1, 5.6, 140.1, 7.4, 149.1, 14.5, 149.1, 22.1, 154, 36.6, 151.7, 36.6, 149.7, 44.6, 147.8, 44.6, 139.7, 50.6, 59, 50.6, -145.1, 41.6, -145.1, 39.3, -152.1, 30.2, -152.1, 18.4, -150.4, 18.4, -146.1, 9, -146.1, -0.700001, -144.8, -8.6, -143.5, -8.6, -138.4, -20.6, -137, -20.6, -122.9, -35.6, -116.2, -35.6, -79.1, -38.5, -79.1, -39.6, -13.9, -39.6 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 478.109, 8.44511 )
@@ -80,3 +74,7 @@ texture = ExtResource( 4 )
 texture_scale = 0.5
 energy = 1.5
 shadow_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 24.5183, 6.80332 )
+polygon = PoolVector2Array( -5.85138, -49.0635, -5.37891, -37.0942, -11.521, -31.2671, -0.699997, -28, 17.5, -30.1, 20.6348, -33.288, 24.9142, -33.288, 27.2728, -28.4974, 28.5141, -17.7493, 34.6061, -7.15466, 54.471, -7.41953, 60.9, -5.5, 59.8, -3, 56.7594, 0.301111, 44.286, 9.79128, 60.7553, 10.1881, 69.7317, 16.4467, 61.5715, 15.7463, 48.7034, 16.1087, 39.0461, 19.9176, 32.8724, 28.2604, 29.8691, 39.6065, 26.46, 45.5214, 20.5737, 45.7316, 14.8976, 45.9419, -6.2683, 45.6967, -15.6084, 43.391, -18.9808, 38.21, -20.8686, 33.8446, -24.0541, 26.4116, -31.2512, 20.2764, -39.6281, 16.8549, -47.0611, 15.557, -55.084, 16.3829, -61.1012, 19.6865, -68.1803, 28.7713, -74.3381, 30.2342, -72.3936, 23.5166, -68.9621, 18.1045, -62.508, 15.0177, -46.7935, 10.8085, -43.5, 2.6, -40, -18, -36, -31, -34.5, -31, -27.81, -39.11, -27.9586, -43.1235, -26.918, -49.8128, -19.3369, -56.2048, -9.94613, -55.0481 )
