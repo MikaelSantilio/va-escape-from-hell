@@ -10,12 +10,12 @@ func _ready():
 	settings = Settings.new()
 	vehicle_settings = settings.players["monster"]
 	vehicle = load(vehicle_settings.path).instance()
-	vehicle.position = Vector2(18200, 860)
-
+	vehicle.position = Vector2(17890, 594)
 	var camera = vehicle.get_node("Camera2D")
+
 	camera.limit_bottom = 960
 	camera.limit_left = 40
-	camera.limit_right = 41570
+	camera.limit_right = 32530
 	add_child(vehicle)
 	
 	move_child(vehicle, 0)

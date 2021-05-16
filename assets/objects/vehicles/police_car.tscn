@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/objects/vehicles/VehicleController.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/vehicles/police/body.png" type="Texture" id=2]
@@ -17,7 +17,10 @@ rough = true
 radius = 26.0252
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 163.219, 53.9212 )
+extents = Vector2( 146.104, 49.8064 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 57.7963, 5.27808 )
 
 [node name="car" type="RigidBody2D"]
 collision_mask = 14
@@ -92,9 +95,20 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LavaDetector"]
-visible = false
-position = Vector2( 25.3403, 8.60995 )
+modulate = Color( 1, 0, 0.937255, 1 )
+position = Vector2( 24.3964, 13.3293 )
 shape = SubResource( 4 )
+
+[node name="RolloverDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RolloverDetector"]
+modulate = Color( 0.156863, 1, 0.0117647, 1 )
+position = Vector2( 14.2866, -130.961 )
+shape = SubResource( 5 )
+
+[node name="RolloverTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="LavaDetector" to="." method="_on_LavaDetector_area_entered"]
 [connection signal="area_exited" from="LavaDetector" to="." method="_on_LavaDetector_area_exited"]

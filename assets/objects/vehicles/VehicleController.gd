@@ -3,7 +3,10 @@ extends RigidBody2D
 export var SPEED = 8
 export var hp = 1000
 export var is_on_lava = false
+export var is_on_rollover = false
 export var lava_damage = 300
+onready var timer = $RolloverTimer
+export var reset_time : float = 2.5
 
 func _physics_process(delta):
 
@@ -36,3 +39,18 @@ func _on_LavaDetector_area_entered(area):
 func _on_LavaDetector_area_exited(area):
 	is_on_lava = false
 	print('Saiu da lava')
+
+func _on_RolloverDetector_body_entered(body):
+	print('Capotou')
+	is_on_rollover = true
+	timer.start(reset_time)
+
+
+func _on_RolloverTimer_timeout():
+	if is_on_rollover:
+		print('End game')
+
+
+func _on_RolloverDetector_body_exited(body):
+	print('Descapotou')
+	is_on_rollover = false

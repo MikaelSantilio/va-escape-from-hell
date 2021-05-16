@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VelocityLabel" type="Label" parent="Control"]
+margin_left = 56.0
+margin_top = 9.0
+margin_right = 117.0
+margin_bottom = 23.0
+text = "120"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control"]
+margin_left = 95.486
+margin_top = 8.5946
+margin_right = 131.486
+margin_bottom = 22.5946
+text = "km/h"
