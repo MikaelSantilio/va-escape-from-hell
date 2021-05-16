@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=1]
 [ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=2]
@@ -10,7 +10,9 @@
 [ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=8]
 [ext_resource path="res://assets/sprites/grounds/ground1-256x256.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/edges/edge2.png" type="Texture" id=10]
-[ext_resource path="res://assets/objects/vehicles/police_car.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/vehicles/jeep.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sprites/backgrounds/animated_lava/lava.tres" type="TileSet" id=12]
+[ext_resource path="res://assets/sounds/musics/scooby_doo_01.mp3" type="AudioStream" id=13]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
@@ -20,7 +22,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
-position = Vector2( 2046.26, -3255.18 )
+position = Vector2( 2046.26, -2259.56 )
 point_in = Vector2( -1254.4, -33.9028 )
 point_out = Vector2( 1254.4, 33.9028 )
 properties = SubResource( 1 )
@@ -46,7 +48,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 6 )
-position = Vector2( 8416.44, 2188.56 )
+position = Vector2( 8766.25, 1139.12 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 5 )
@@ -59,7 +61,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=8]
 script = ExtResource( 6 )
-position = Vector2( 2046.26, -3255.18 )
+position = Vector2( 2046.26, -2259.56 )
 point_in = Vector2( -1254.4, -33.9028 )
 point_out = Vector2( 1254.4, 33.9028 )
 properties = SubResource( 7 )
@@ -72,7 +74,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=10]
 script = ExtResource( 6 )
-position = Vector2( -13275.2, 2115.82 )
+position = Vector2( -13275.2, 823.474 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 9 )
@@ -98,7 +100,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=14]
 script = ExtResource( 6 )
-position = Vector2( -1726.96, -162.882 )
+position = Vector2( -1700.05, -862.508 )
 point_in = Vector2( -1966.36, 508.542 )
 point_out = Vector2( 1966.36, -508.542 )
 properties = SubResource( 13 )
@@ -124,7 +126,7 @@ width = 1.0
 
 [sub_resource type="Resource" id=18]
 script = ExtResource( 6 )
-position = Vector2( 8180.56, 306.529 )
+position = Vector2( 8160.4, 729.862 )
 point_in = Vector2( -1220.5, 440.736 )
 point_out = Vector2( 1220.5, -440.736 )
 properties = SubResource( 17 )
@@ -189,22 +191,19 @@ fill_texture_z_index = -10
 fill_mesh_offset = 0.0
 render_offset = 0.0
 
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 1029.01, 299.616 )
+
 [node name="TestLevel" type="Node2D"]
 position = Vector2( 31210.6, 301.465 )
-
-[node name="car" parent="." instance=ExtResource( 11 )]
-position = Vector2( -27179.8, -4125.22 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -14375.7, -548.816 )
 
 [node name="SS2D_Shape_Closed" type="Node2D" parent="StaticBody2D"]
 script = ExtResource( 8 )
-editor_debug = false
-curve_bake_interval = 20.0
 _points = SubResource( 19 )
 material_overrides = {
-
 }
 shape_material = SubResource( 23 )
 tessellation_stages = 5
@@ -218,4 +217,30 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
 modulate = Color( 1, 1, 1, 0.3 )
-polygon = PoolVector2Array( 2046.26, -3255.2, 2104.32, -3251.56, 2160.92, -3243.93, 2216.11, -3232.44, 2269.94, -3217.23, 2373.71, -3176.2, 2472.6, -3121.9, 2567, -3055.44, 2657.3, -2977.94, 2827.1, -2794.15, 2985.05, -2579.26, 3134.22, -2342.06, 3418.47, -1835.76, 3704.33, -1345.36, 3855.5, -1128.03, 4016.24, -940.969, 4101.15, -861.52, 4189.61, -792.933, 4282, -736.296, 4378.67, -692.686, 4428.75, -676.109, 4480.04, -663.215, 4532.61, -654.128, 4586.49, -648.987, 4641.73, -647.928, 4698.39, -651.088, 4756.5, -658.604, 4816.12, -670.605, 4935.65, -693.412, 5052.8, -705.088, 5167.71, -706.414, 5280.51, -698.159, 5391.37, -681.09, 5500.42, -655.984, 5713.7, -584.694, 5921.49, -490.419, 6124.99, -379.317, 6919.38, 110.578, 7118.9, 213.725, 7321.14, 296.852, 7527.26, 353.845, 7632.13, 370.624, 7738.42, 378.551, 7846.26, 376.871, 7955.79, 364.816, 8067.18, 341.619, 8180.55, 306.501, 10990, -957.286, 8417.1, 2189.97, -13278, 2118.88, -13824.6, -3543.18, -8510.86, -1659.42, -4446.05, -475.619, -2811.14, -161.899, -2186.82, -117, -1934.66, -127.835, -1825.04, -142.241, -1726.96, -162.895, -1546.69, -216.601, -1374.33, -281.807, -1051.73, -443.178, -756.07, -640.019, -484.255, -865.382, 0.267578, -1373.74, 819.607, -2425.75, 1203.99, -2857.85, 1400.73, -3025.99, 1501.59, -3095.04, 1604.62, -3152.92, 1710.21, -3198.75, 1818.76, -3231.66, 1930.65, -3250.77 )
+polygon = PoolVector2Array( 2046.26, -2259.58, 2160.92, -2251.17, 2269.94, -2232.79, 2373.7, -2205.18, 2472.59, -2169.05, 2566.99, -2125.15, 2657.29, -2074.2, 2827.1, -1954.09, 2985.05, -1814.56, 3134.22, -1661.46, 3418.47, -1337.95, 3704.33, -1030.35, 3855.5, -897.124, 4016.24, -785.408, 4101.15, -739.438, 4189.61, -701.049, 4281.98, -670.962, 4378.67, -649.907, 4480.04, -638.614, 4586.49, -637.814, 4698.38, -648.239, 4816.12, -670.605, 4935.6, -692.206, 5052.58, -700.341, 5167.21, -695.956, 5279.65, -679.974, 5390.05, -653.318, 5498.57, -616.922, 5710.55, -518.552, 5916.82, -392.234, 6118.62, -245.372, 6905.59, 399.967, 7103.42, 538.872, 7304.13, 654.051, 7405.95, 700.44, 7508.96, 738.12, 7613.3, 766.176, 7719.13, 783.687, 7826.6, 789.731, 7935.86, 783.386, 8047.07, 763.729, 8160.39, 729.84, 8631.97, 531.139, 9115.89, 281.472, 10028, -275.249, 10991.7, -959.225, 8766.68, 1140.21, -13277.8, 826.402, -13824.7, -3542.81, -8497.41, -2009.23, -4423.35, -1065.93, -2785.39, -831.458, -2160.21, -808.764, -1907.83, -825.463, -1700.06, -862.537, -1025.97, -1069.95, -461.537, -1300.12, 440.09, -1764.45, 828.123, -1966.52, 1208.21, -2127.11, 1403.22, -2186.82, 1605.79, -2230.14, 1819.07, -2255.06 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -101.885, 257.709 )
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 256, 256 )
+format = 1
+tile_data = PoolIntArray( 65507, 0, 0, 65508, 0, 0, 65509, 0, 0, 65510, 0, 0, 65511, 0, 0, 65512, 0, 0, 65513, 0, 0, 65514, 0, 0, 131043, 1, 0, 131044, 1, 0, 131045, 1, 0, 131046, 1, 0, 131047, 1, 0, 131048, 1, 0, 131049, 1, 0, 131050, 1, 0, 196579, 1, 0, 196580, 1, 0, 196581, 1, 0, 196582, 1, 0, 196583, 1, 0, 196584, 1, 0, 196585, 1, 0, 196586, 1, 0 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -6501.51, 768.6 )
+space_override = 3
+gravity = 6.0
+linear_damp = 3.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 24 )
+
+[node name="car" parent="." instance=ExtResource( 11 )]
+position = Vector2( -28019.1, -4204.54 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -20.0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/avenged_sevenfold_02.mp3-eda497dbfb4df8d80a972ff36576aeac.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/musics/avenged_sevenfold_02.mp3"
+dest_files=[ "res://.import/avenged_sevenfold_02.mp3-eda497dbfb4df8d80a972ff36576aeac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

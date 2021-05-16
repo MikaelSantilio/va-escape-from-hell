@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/objects/vehicles/VehicleController.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/vehicles/police/body.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/vehicles/police/wheel.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/effects/headlight_2.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 4.0
@@ -13,9 +14,16 @@ absorbent = true
 rough = true
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 30.0202
+radius = 26.0252
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 146.104, 49.8064 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 57.7963, 5.27808 )
 
 [node name="car" type="RigidBody2D"]
+collision_mask = 14
 mass = 300.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 4.0
@@ -43,7 +51,7 @@ shape = SubResource( 3 )
 [node name="PinJoint2D" type="PinJoint2D" parent="r_wheel"]
 node_a = NodePath("../..")
 node_b = NodePath("..")
-softness = 0.03
+softness = 0.01
 
 [node name="l_wheel" type="RigidBody2D" parent="."]
 position = Vector2( -80.7523, 56.5085 )
@@ -62,12 +70,45 @@ texture = ExtResource( 3 )
 [node name="PinJoint2D" type="PinJoint2D" parent="l_wheel"]
 node_a = NodePath("../..")
 node_b = NodePath("..")
-softness = 0.03
+softness = 0.01
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 281.682, -134.848 )
+position = Vector2( 524.957, -219.245 )
 current = true
+zoom = Vector2( 1.75, 1.75 )
+limit_bottom = 958
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 24.5183, 6.80332 )
 polygon = PoolVector2Array( -13.9, -38.3, 22.1, -32.3, 22.1, -31, 34.1, -27, 34.1, -25.7, 71.6, -3.6, 75.2, -3.6, 140.1, 5.6, 140.1, 7.4, 149.1, 14.5, 149.1, 22.1, 154, 36.6, 151.7, 36.6, 149.7, 44.6, 147.8, 44.6, 139.7, 50.6, 59, 50.6, -145.1, 41.6, -145.1, 39.3, -152.1, 30.2, -152.1, 18.4, -150.4, 18.4, -146.1, 9, -146.1, -0.700001, -144.8, -8.6, -143.5, -8.6, -138.4, -20.6, -137, -20.6, -122.9, -35.6, -116.2, -35.6, -79.1, -38.5, -79.1, -39.6, -13.9, -39.6 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 478.109, 8.44511 )
+texture = ExtResource( 4 )
+texture_scale = 0.5
+energy = 1.5
+shadow_enabled = true
+
+[node name="LavaDetector" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LavaDetector"]
+modulate = Color( 1, 0, 0.937255, 1 )
+position = Vector2( 24.3964, 13.3293 )
+shape = SubResource( 4 )
+
+[node name="RolloverDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RolloverDetector"]
+modulate = Color( 0.156863, 1, 0.0117647, 1 )
+position = Vector2( 14.2866, -130.961 )
+shape = SubResource( 5 )
+
+[node name="RolloverTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="LavaDetector" to="." method="_on_LavaDetector_area_entered"]
+[connection signal="area_exited" from="LavaDetector" to="." method="_on_LavaDetector_area_exited"]

@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/objects/vehicles/VehicleController.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/vehicles/monster/body.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/vehicles/monster/wheel.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/effects/headlight_2.png" type="Texture" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 4.0
+rough = true
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id=2]
+rough = true
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 54.0672
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 163.219, 98.1183 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 57.7963, 5.27808 )
+
+[node name="monster" type="RigidBody2D"]
+mass = 450.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 4.0
+can_sleep = false
+script = ExtResource( 1 )
+SPEED = 6
+
+[node name="body" type="Sprite" parent="."]
+position = Vector2( 26.5183, -45.1967 )
+texture = ExtResource( 2 )
+
+[node name="r_wheel" type="RigidBody2D" parent="."]
+position = Vector2( 143.34, 37.7109 )
+mass = 5.10204
+physics_material_override = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="r_wheel"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="r_wheel"]
+shape = SubResource( 3 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="r_wheel"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+bias = 0.5
+softness = 0.06
+
+[node name="l_wheel" type="RigidBody2D" parent="."]
+position = Vector2( -76.51, 37.711 )
+mass = 5.10204
+physics_material_override = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="l_wheel"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="l_wheel"]
+shape = SubResource( 3 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="l_wheel"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+bias = 0.5
+softness = 0.06
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 524.957, -219.245 )
+current = true
+zoom = Vector2( 1.75, 1.75 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 490.001, -58.1505 )
+texture = ExtResource( 4 )
+texture_scale = 0.5
+energy = 1.5
+shadow_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 26.5183, -45.1967 )
+polygon = PoolVector2Array( 79.8, -44.5, 108.1, -44.5, 147, -41.3, 147, -40, 179, -30, 179, -28, 184, -20.9, 184, 0.5, 177, 8.2, 177, 10.5, 178.1, 30.5, 176, 30.5, 173, 34.5, 161, 34.5, 161, 32.2, 157.1, 27.5, 152.2, 27.5, 148, 23.3, 148, 20.8, 141.7, 6.5, 137.1, 2.4, 138, 22.5, 136.4, 22.5, 130.4, 38.5, 121.4, 38.5, 117.9, 36.3, 110.5, 40.5, 104.5, 40.5, 102, 39.2, 53.2, 64.1, 75, 66.7, 75, 69.5, 76, 80.5, -59, 80.5, -59, 73.3, -57.6, 66.5, -52.4, 66.5, -38.4, 63.8, -88.6, 36.5, -93.5, 36.5, -100.5, 32.5, -101.7, 32.5, -116, 34.9, -116, 31.9, -120, 20.9, -120, 1.1, -134, 19.5, -140.4, 19.5, -156, 12.8, -156, 11.4, -169, -0.599998, -169, -2.9, -184, -26.7, -184, -44.7, -177, -53.5, -167, -53.5, -99, -51.6, -91, -55.7, -91, -56.3, -67, -80.3, 43, -80.5 )
+
+[node name="LavaDetector" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LavaDetector"]
+modulate = Color( 1, 0, 0.937255, 1 )
+position = Vector2( 30.6376, -17.8766 )
+shape = SubResource( 4 )
+
+[node name="RolloverDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RolloverDetector"]
+modulate = Color( 0.156863, 1, 0.0117647, 1 )
+position = Vector2( 14.2866, -130.961 )
+shape = SubResource( 5 )
+
+[node name="RolloverTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="LavaDetector" to="." method="_on_LavaDetector_area_entered"]
+[connection signal="area_exited" from="LavaDetector" to="." method="_on_LavaDetector_area_exited"]
+[connection signal="body_entered" from="RolloverDetector" to="." method="_on_RolloverDetector_body_entered"]
+[connection signal="body_exited" from="RolloverDetector" to="." method="_on_RolloverDetector_body_exited"]
+[connection signal="timeout" from="RolloverTimer" to="." method="_on_RolloverTimer_timeout"]
