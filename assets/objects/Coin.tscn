@@ -23,7 +23,7 @@ radius = 76.7604
 resource_name = "bouncing"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("coin:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -48,6 +48,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "fade_out"
 length = 0.6
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -55,7 +56,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.1, 0.6 ),
+"times": PoolRealArray( 0.1, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -76,13 +77,16 @@ tracks/1/keys = {
 }
 
 [node name="Coin" type="Area2D"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.682538 )
+position = Vector2( 0.0371628, -25.4846 )
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "coin"
+frame = 2
 speed_scale = 1.051
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.943909, -0.943878 )

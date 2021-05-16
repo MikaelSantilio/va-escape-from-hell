@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_0.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/effects/lava_light_02.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/map_2.png" type="Texture" id=15]
-[ext_resource path="res://assets/sounds/musics/music_01.mp3" type="AudioStream" id=16]
+[ext_resource path="res://assets/objects/Coin.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_3.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_2.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_1.png" type="Texture" id=19]
@@ -45,6 +45,7 @@ _points = {
 }
 _point_order = [ 0 ]
 _constraints = {
+
 }
 _next_key = 0
 
@@ -689,6 +690,7 @@ position = Vector2( 17797, 2198.24 )
 script = ExtResource( 8 )
 _points = SubResource( 91 )
 material_overrides = {
+
 }
 shape_material = SubResource( 10 )
 tessellation_stages = 5
@@ -711,6 +713,7 @@ position = Vector2( -26.9395, 53.8782 )
 script = ExtResource( 8 )
 _points = SubResource( 114 )
 material_overrides = {
+
 }
 shape_material = SubResource( 10 )
 tessellation_stages = 5
@@ -731,6 +734,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 129 )
 material_overrides = {
+
 }
 shape_material = SubResource( 10 )
 tessellation_stages = 5
@@ -750,6 +754,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 144 )
 material_overrides = {
+
 }
 shape_material = SubResource( 10 )
 tessellation_stages = 5
@@ -769,6 +774,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 167 )
 material_overrides = {
+
 }
 shape_material = SubResource( 10 )
 tessellation_stages = 5
@@ -875,7 +881,6 @@ scale = Vector2( 39.7744, 2.6679 )
 texture = ExtResource( 14 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
 volume_db = -20.0
 autoplay = true
 
@@ -920,4 +925,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishDetector"]
 shape = SubResource( 88 )
 
+[node name="Coin" parent="." instance=ExtResource( 16 )]
+position = Vector2( 19473.9, 1309.55 )
 [connection signal="body_entered" from="FinishDetector" to="." method="_on_FinishDetector_body_entered"]
