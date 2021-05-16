@@ -29,6 +29,9 @@ gravity_scale = 4.0
 can_sleep = false
 script = ExtResource( 1 )
 SPEED = 6
+max_speed = 460
+acceleration = 3000.0
+max_torque_impulse = 40000
 
 [node name="body" type="Sprite" parent="."]
 position = Vector2( 26.5183, -45.1967 )
