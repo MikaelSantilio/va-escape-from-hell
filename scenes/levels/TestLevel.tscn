@@ -202,7 +202,6 @@ position = Vector2( -14375.7, -548.816 )
 script = ExtResource( 8 )
 _points = SubResource( 19 )
 material_overrides = {
-
 }
 shape_material = SubResource( 23 )
 tessellation_stages = 5

@@ -16,6 +16,8 @@ export var reset_time : float = 2.5
 
 
 func _physics_process(delta):
+	
+	Global.kmh = calculate_speed_kmh($r_wheel)
 
 	if calculate_speed_kmh($r_wheel) < max_speed and not is_on_lava and Input.is_action_pressed("ui_right"):
 		# $r_wheel.angular_velocity += SPEED

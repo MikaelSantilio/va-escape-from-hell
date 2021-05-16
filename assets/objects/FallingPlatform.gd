@@ -17,7 +17,6 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	animation_player.play("ShakePlatform")
 	velocity = Vector2.ZERO
-	print("Plataforma quebradica")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
