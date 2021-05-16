@@ -1,6 +1,7 @@
 extends Node2D
 
 var Settings = load("res://assets/objects/Settings.gd")
+var PauseInterface = load("res://scenes/menu/PauseInterface.tscn").instance()
 var vehicle
 var vehicle_settings
 var settings
@@ -11,14 +12,16 @@ func _ready():
 	vehicle_settings = settings.players["monster"]
 	vehicle = load(vehicle_settings.path).instance()
 	vehicle.position = Vector2(18200, 860)
-
+	
+	
 	var camera = vehicle.get_node("Camera2D")
 	camera.limit_bottom = 960
 	camera.limit_left = 40
 	camera.limit_right = 41570
 	add_child(vehicle)
-	
 	move_child(vehicle, 0)
+	add_child(PauseInterface)
+	move_child(PauseInterface, 0)
 
 func _on_FinishDetector_body_entered(body):
 	print("Fim da corrida")
