@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=1]
 [ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_0.png" type="Texture" id=13]
 [ext_resource path="res://assets/sprites/effects/lava_light_02.png" type="Texture" id=14]
 [ext_resource path="res://assets/sprites/map_2.png" type="Texture" id=15]
-[ext_resource path="res://assets/sounds/musics/scooby_doo_01.mp3" type="AudioStream" id=16]
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_3.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_2.png" type="Texture" id=18]
 [ext_resource path="res://assets/sprites/backgrounds/parallax_1/background_layer_1.png" type="Texture" id=19]
@@ -277,6 +276,7 @@ _points = {
 }
 _point_order = [ 0 ]
 _constraints = {
+
 }
 _next_key = 0
 
@@ -507,6 +507,7 @@ position = Vector2( -26.9395, 53.8782 )
 script = ExtResource( 8 )
 _points = SubResource( 23 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -526,6 +527,7 @@ polygon = PoolVector2Array( -129.925, -742.882, 137.539, -739.516, 334.358, -746
 script = ExtResource( 8 )
 _points = SubResource( 33 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -544,6 +546,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 48 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -563,6 +566,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 63 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -650,6 +654,5 @@ scale = Vector2( 23.3715, 2.6679 )
 texture = ExtResource( 14 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
 volume_db = -20.0
 autoplay = true
