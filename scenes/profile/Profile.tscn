@@ -1,0 +1,215 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scenes/menu/buttons/DefaultButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/map/phasesBack.jpeg" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/JUSTICE LEAGUE.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/profile/Profile.gd" type="Script" id=4]
+[ext_resource path="res://scenes/profile/profile-background.jpg" type="Texture" id=5]
+[ext_resource path="res://scenes/themes/selected-button-profile.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/sprites/vehicles/police/body.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/vehicles/jeep/body.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/vehicles/jeep/wheel.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/vehicles/monster/wheel.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/vehicles/monster/body.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/vehicles/sport/wheel.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/vehicles/sport/body.png" type="Texture" id=13]
+[ext_resource path="res://assets/sounds/musics/intro_02.mp3" type="AudioStream" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.952941, 0.933333, 0.933333, 0.403922 )
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id=4]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Title" type="Label" parent="."]
+margin_left = 381.0
+margin_top = 25.0
+margin_right = 644.0
+margin_bottom = 90.0
+custom_fonts/font = SubResource( 1 )
+text = "Profile"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProfileBack" parent="." instance=ExtResource( 1 )]
+margin_left = 46.0
+margin_top = 34.0
+margin_right = 190.0
+margin_bottom = 94.0
+text = "Back"
+icon = ExtResource( 2 )
+reference_path = "res://scenes/menu/Menu.tscn"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 511.631, 300.455 )
+scale = Vector2( 0.207573, 0.184912 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 198.755
+margin_top = 96.3471
+margin_right = 842.755
+margin_bottom = 560.347
+custom_styles/normal = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="Label"]
+margin_left = -194.044
+margin_top = -22.7692
+margin_right = -145.044
+margin_bottom = 14.2308
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonsterButton" type="Button" parent="Label/Container"]
+margin_left = 707.083
+margin_top = 294.701
+margin_right = 799.083
+margin_bottom = 377.701
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Label/Container/MonsterButton"]
+position = Vector2( 45.709, 35.3632 )
+scale = Vector2( 0.214311, 0.368343 )
+texture = ExtResource( 11 )
+
+[node name="wheel" type="Sprite" parent="Label/Container/MonsterButton/Sprite"]
+position = Vector2( -118.617, 71.0322 )
+scale = Vector2( 1.29843, 0.814984 )
+texture = ExtResource( 10 )
+
+[node name="wheel2" type="Sprite" parent="Label/Container/MonsterButton/Sprite"]
+position = Vector2( 134.904, 71.0322 )
+scale = Vector2( 1.29843, 0.814984 )
+texture = ExtResource( 10 )
+
+[node name="FerrariButton" type="Button" parent="Label/Container"]
+margin_left = 563.448
+margin_top = 294.904
+margin_right = 655.448
+margin_bottom = 377.904
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Label/Container/FerrariButton"]
+position = Vector2( 46.9114, 36.2428 )
+scale = Vector2( 0.284518, 0.544386 )
+texture = ExtResource( 13 )
+
+[node name="wheel2" type="Sprite" parent="Label/Container/FerrariButton/Sprite"]
+position = Vector2( 101.216, 24.9613 )
+texture = ExtResource( 12 )
+
+[node name="wheel" type="Sprite" parent="Label/Container/FerrariButton/Sprite"]
+position = Vector2( -103.816, 23.2965 )
+texture = ExtResource( 12 )
+
+[node name="PoliceButton" type="Button" parent="Label/Container"]
+margin_left = 400.84
+margin_top = 297.174
+margin_right = 492.84
+margin_bottom = 380.174
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Label/Container/PoliceButton"]
+position = Vector2( 46.3273, 34.7617 )
+scale = Vector2( 0.260805, 0.512265 )
+texture = ExtResource( 7 )
+
+[node name="wheel2" type="Sprite" parent="Label/Container/PoliceButton/Sprite"]
+position = Vector2( 103.411, 49.1851 )
+texture = ExtResource( 9 )
+
+[node name="wheel" type="Sprite" parent="Label/Container/PoliceButton/Sprite"]
+position = Vector2( -101.243, 45.9771 )
+texture = ExtResource( 9 )
+
+[node name="JeepButton" type="Button" parent="Label/Container"]
+margin_left = 242.527
+margin_top = 297.698
+margin_right = 334.527
+margin_bottom = 380.698
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/normal = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Label/Container/JeepButton"]
+position = Vector2( 45.6377, 34.3276 )
+scale = Vector2( 0.317184, 0.566658 )
+texture = ExtResource( 8 )
+
+[node name="wheel2" type="Sprite" parent="Label/Container/JeepButton/Sprite"]
+position = Vector2( 91.3527, 45.5802 )
+texture = ExtResource( 9 )
+
+[node name="wheel" type="Sprite" parent="Label/Container/JeepButton/Sprite"]
+position = Vector2( -90.0078, 45.9771 )
+texture = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="Label"]
+margin_left = 48.0
+margin_top = 57.0
+margin_right = 602.0
+margin_bottom = 245.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="ProfileBack" to="." method="_on_ProfileBack_pressed"]
+[connection signal="pressed" from="Label/Container/MonsterButton" to="." method="_on_MonsterButton_pressed"]
+[connection signal="pressed" from="Label/Container/FerrariButton" to="." method="_on_FerrariButton_pressed"]
+[connection signal="pressed" from="Label/Container/PoliceButton" to="." method="_on_PoliceButton_pressed"]
+[connection signal="pressed" from="Label/Container/JeepButton" to="." method="_on_JeepButton_pressed"]

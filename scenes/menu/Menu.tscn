@@ -58,6 +58,7 @@ margin_bottom = 410.0
 focus_neighbour_bottom = NodePath("../menuExit")
 custom_fonts/font = SubResource( 2 )
 text = "Options"
+reference_path = "res://scenes/profile/Profile.tscn"
 
 [node name="menuExit" parent="." instance=ExtResource( 2 )]
 margin_left = 115.0
