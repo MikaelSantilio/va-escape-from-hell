@@ -37,7 +37,6 @@ margin_right = 190.0
 margin_bottom = 94.0
 text = "Back"
 icon = ExtResource( 2 )
-reference_path = "res://scenes/menu/Menu.tscn"
 
 [node name="ButtonLevel1" type="Button" parent="."]
 margin_left = 70.7001
@@ -191,6 +190,7 @@ text = "Select the fase"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="phasesBack" to="." method="_on_phasesBack_pressed"]
 [connection signal="pressed" from="ButtonLevel1" to="." method="_on_ButtonLevel1_pressed"]
 [connection signal="pressed" from="ButtonLevel2" to="." method="_on_ButtonLevel2_pressed"]
 [connection signal="pressed" from="ButtonLevel3" to="." method="_on_ButtonLevel3_pressed"]
