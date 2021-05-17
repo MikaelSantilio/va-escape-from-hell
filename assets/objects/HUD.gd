@@ -12,3 +12,7 @@ func update_kmh():
 	var previous_value = int($VelocimetroControl/VelocityLabel.text)
 	if not(abs(previous_value - Global.kmh) > 30 and Global.kmh > previous_value):
 		$VelocimetroControl/VelocityLabel.text = String(Global.kmh)
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://scenes/menu/PauseInterface.tscn")

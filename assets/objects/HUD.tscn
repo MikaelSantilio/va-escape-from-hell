@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/Call of Ops Duty.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/objects/HUD.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/coins/coin1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/themes/non-selected-default.tres" type="StyleBox" id=4]
+[ext_resource path="res://scenes/themes/selected-button-default.tres" type="StyleBox" id=5]
+[ext_resource path="res://scenes/map/pause-button.jpeg" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -16,7 +19,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 34
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -33,12 +36,12 @@ __meta__ = {
 }
 
 [node name="CoinLabel" type="Label" parent="Control"]
-margin_left = 132.223
-margin_top = 97.8382
-margin_right = 172.223
-margin_bottom = 131.838
+margin_left = 892.917
+margin_top = 23.6758
+margin_right = 932.917
+margin_bottom = 57.6756
 rect_pivot_offset = Vector2( 20, 17 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
@@ -47,12 +50,12 @@ __meta__ = {
 }
 
 [node name="CoinSeparator" type="Label" parent="Control"]
-margin_left = 75.5386
-margin_top = 97.8382
-margin_right = 115.539
-margin_bottom = 131.838
+margin_left = 831.995
+margin_top = 23.6758
+margin_right = 871.996
+margin_bottom = 57.6756
 rect_pivot_offset = Vector2( 20, 17 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "X"
 align = 1
 valign = 1
@@ -61,13 +64,16 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
-margin_left = 29.0
-margin_top = 90.0
-margin_right = 183.0
-margin_bottom = 242.0
+margin_left = 772.743
+margin_top = 15.8376
+margin_right = 926.743
+margin_bottom = 167.838
 rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VelocimetroControl" type="Control" parent="Control"]
 anchor_left = 0.47
@@ -97,7 +103,7 @@ margin_left = -9.0
 margin_top = -18.0
 margin_right = 9.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 1
 valign = 1
@@ -115,3 +121,18 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 36.0
+margin_top = 22.0
+margin_right = 91.0
+margin_bottom = 76.0
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]

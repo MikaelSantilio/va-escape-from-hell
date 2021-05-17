@@ -108,3 +108,7 @@ func _on_ButtonLevel6_pressed():
 
 func _on_ButtonLevel7_pressed():
 	get_tree().change_scene("res://scenes/levels/Level07.tscn")
+
+
+func _on_phasesBack_pressed():
+	get_tree().change_scene("res://scenes/menu/Menu.tscn")
