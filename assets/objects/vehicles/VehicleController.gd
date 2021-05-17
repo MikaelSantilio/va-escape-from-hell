@@ -56,6 +56,7 @@ func _physics_process(delta):
 		instance_from_id(Global.level_id).add_child(DieScreen)
 		player_die = true
 		Global.other_screen_open = true
+		Global.coins = 0
 		#instance_from_id(Global.winner_screen_id).queue_free()
 		#instance_from_id(Global.pause_screen_id).queue_free()
 
