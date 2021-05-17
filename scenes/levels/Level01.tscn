@@ -666,6 +666,7 @@ position = Vector2( -26.9395, 53.8782 )
 script = ExtResource( 8 )
 _points = SubResource( 23 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -686,6 +687,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 45 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -705,6 +707,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 60 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
@@ -724,6 +727,7 @@ position = Vector2( 240.125, 353.522 )
 script = ExtResource( 8 )
 _points = SubResource( 83 )
 material_overrides = {
+
 }
 shape_material = SubResource( 30 )
 tessellation_stages = 5
