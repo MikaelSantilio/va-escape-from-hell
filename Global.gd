@@ -1,7 +1,14 @@
 extends Node
 
 var coins : int = 0
+var winner_screen_id : int = 0
+var die_screen_id : int
+var pause_screen_id : int
+var other_screen_open : = false
+var level_id : int
+var current_level : String
 var global_coins : int = 0
+var global_hp : int = 0
 var kmh : int = 0
 var players : Dictionary = {
 		"police_car": {
@@ -22,8 +29,6 @@ var players : Dictionary = {
 		}
 	}
 var vehicle_selected : Dictionary = players["monster"]
-var coin_sound = load("res://assets/objects/CoinSound.tscn").instance()
-
+var coin_sound
 func play_coin_sound():
 	coin_sound.play()
-	print("Sound play")

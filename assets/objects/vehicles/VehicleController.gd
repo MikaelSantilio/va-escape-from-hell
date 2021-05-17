@@ -1,8 +1,7 @@
 extends RigidBody2D
 
 export var SPEED = 8
-export var hp = 1000
-export var lava_damage = 300
+export var lava_damage = 10
 
 export var max_speed : int = 300
 export var acceleration : float = 2000.0
@@ -13,6 +12,7 @@ var is_on_lava = false
 var is_rollover = false
 onready var timer = $RolloverTimer
 export var reset_time : float = 2.5
+var player_die = false
 
 
 func _physics_process(delta):
@@ -44,12 +44,20 @@ func _physics_process(delta):
 	elif not is_on_lava and Input.is_action_pressed("ui_down"):
 		rotation_degrees += 0.5
 
-	if is_on_lava and hp > 0:
-		if hp < lava_damage:
-			hp = 0
+	if is_on_lava and Global.global_hp > 0:
+		if Global.global_hp < lava_damage:
+			Global.global_hp = 0
 		else:
-			hp -= lava_damage
-		print(hp)
+			Global.global_hp -= lava_damage
+	
+	if Global.global_hp <= 0 and not player_die:
+		var DieScreen = load("res://scenes/menu/DScreen.tscn").instance()
+		# var die_screen = instance_from_id(Global.die_screen_id).get_node("DieInterface/DieOverlay")
+		instance_from_id(Global.level_id).add_child(DieScreen)
+		player_die = true
+		Global.other_screen_open = true
+		#instance_from_id(Global.winner_screen_id).queue_free()
+		#instance_from_id(Global.pause_screen_id).queue_free()
 
 func calculate_speed_kmh(wheel: RigidBody2D) -> int:
 		var rpm = abs(wheel.angular_velocity) / (2 * PI / 60)
@@ -73,7 +81,7 @@ func _on_RolloverDetector_body_entered(body):
 
 func _on_RolloverTimer_timeout():
 	if is_rollover:
-		print('End game')
+		Global.global_hp = 0
 
 
 func _on_RolloverDetector_body_exited(body):

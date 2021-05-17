@@ -21,7 +21,7 @@ func _get_reference_nodes():
 	var b6 = get_node("ButtonLevel6")
 	var b7 = get_node("ButtonLevel7")
 	
-	var list_buttons = [b2,b3,b4,b5,b6,b7]
+	var list_buttons = [b3,b4,b5,b6,b7]
 	_set_disabled_buttons(list_buttons)
 	
 	var l12 = get_node("LineL12")
@@ -31,7 +31,7 @@ func _get_reference_nodes():
 	var l56 = get_node("LineL56")
 	var l67 = get_node("LineL67")
 	
-	var list_lines = [l12,l23,l34,l45,l56,l67]
+	var list_lines = [l23,l34,l45,l56,l67]
 	_set_disabled_lines(list_lines)
 
 func _set_disabled_buttons(list_buttons):

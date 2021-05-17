@@ -171,12 +171,16 @@ _global_script_class_icons={
 [application]
 
 config/name="va_escape_from_hell"
-run/main_scene="res://scenes/levels/Level01.tscn"
+run/main_scene="res://scenes/menu/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.gd"
+
+[display]
+
+window/size/resizable=false
 
 [editor_plugins]
 

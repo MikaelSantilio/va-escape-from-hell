@@ -11,7 +11,7 @@ func _ready():
 	pause_overlay.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_paused"):
+	if event.is_action_pressed("ui_paused") and not Global.other_screen_open:
 		self.paused = not paused
 		scene_tree.set_input_as_handled()
 		

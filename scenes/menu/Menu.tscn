@@ -33,6 +33,7 @@ size = 78
 font_data = ExtResource( 4 )
 
 [node name="Menu" type="Node2D"]
+pause_mode = 2
 __meta__ = {
 "_edit_lock_": true
 }

@@ -4,6 +4,7 @@ var HUD = load("res://assets/objects/HUD.tscn").instance()
 
 func _ready():
 	# Set HUD
+	Global.global_hp = 1000
 	add_child(HUD)
 	# Spawning Vehicle
 	var vehicle = load(Global.vehicle_selected.path).instance()
@@ -17,9 +18,10 @@ func _ready():
 	camera.limit_left = 40
 	camera.limit_right = 41570
 
-	# Set Pause Menu
+	# Set Menu
+	var coin_sound = load("res://assets/objects/CoinSound.tscn").instance()
+	add_child(coin_sound)
+	Global.coin_sound = coin_sound
 	var PauseInterface = load("res://scenes/menu/PauseInterface.tscn").instance()
 	add_child(PauseInterface)
-	
-	add_child(Global.coin_sound)
-	# move_child(PauseInterface, 0)
+	Global.level_id = get_instance_id()

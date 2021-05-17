@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/Call of Ops Duty.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/objects/HUD.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/coins/coin1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/items/heart0.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -18,6 +19,12 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 34
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -105,13 +112,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
-margin_left = 475.953
-margin_top = 18.5221
-margin_right = 495.953
-margin_bottom = 58.5221
-size_flags_horizontal = 5
+[node name="LifeLabel" type="Label" parent="Control"]
+margin_left = 115.989
+margin_top = 179.711
+margin_right = 155.989
+margin_bottom = 212.711
+custom_fonts/font = SubResource( 4 )
+text = "0"
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+margin_left = 25.5465
+margin_top = 172.863
+margin_right = 140.546
+margin_bottom = 292.863
+rect_scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 4 )

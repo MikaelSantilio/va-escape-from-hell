@@ -16,11 +16,21 @@ func _connect_on_Button():
 		
 		
 func _on_Button_mouse_entered():
+	print("focus")
 	grab_focus()
 	
 	
 func _on_Button_Pressed():
+	print_tree()
 	if (reference_path != ""):
 		get_tree().change_scene(reference_path)
 	else:
 		get_tree().quit()
+
+
+func _on_Button_button_up():
+	print("presionado")
+
+
+func _on_Button_button_down():
+	print("down")
