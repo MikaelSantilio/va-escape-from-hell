@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/objects/Stone02.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/objects/Warning.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/objects/MapLimit.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/objects/FinishDetector.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -645,9 +646,6 @@ _next_key = 12
 [sub_resource type="RectangleShape2D" id=84]
 extents = Vector2( 2169.96, 418.37 )
 
-[sub_resource type="RectangleShape2D" id=85]
-extents = Vector2( 124.422, 173.323 )
-
 [node name="Node2D" type="Node2D"]
 position = Vector2( -17672.6, -961.763 )
 script = ExtResource( 11 )
@@ -865,20 +863,11 @@ position = Vector2( 17692.5, 1286.14 )
 [node name="MapLimit2" parent="." instance=ExtResource( 24 )]
 position = Vector2( 59278.4, -1719.44 )
 
-[node name="FinishDetector" type="Area2D" parent="."]
+[node name="FinishDetector" parent="." instance=ExtResource( 25 )]
 position = Vector2( 58524.3, -1735.89 )
-collision_layer = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishDetector"]
-shape = SubResource( 85 )
 
 [node name="Coin" parent="." instance=ExtResource( 16 )]
 position = Vector2( 19473.9, 1309.55 )
 
 [node name="Coin2" parent="." instance=ExtResource( 16 )]
 position = Vector2( 27468.7, 341.31 )
-
-[connection signal="body_entered" from="FinishDetector" to="." method="_on_FinishDetector_body_entered"]

@@ -21,6 +21,3 @@ func _ready():
 	var PauseInterface = load("res://scenes/menu/PauseInterface.tscn").instance()
 	add_child(PauseInterface)
 	move_child(PauseInterface, 0)
-
-func _on_FinishDetector_body_entered(body):
-	print("Fim da corrida")

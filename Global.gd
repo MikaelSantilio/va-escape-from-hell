@@ -1,6 +1,7 @@
 extends Node
 
 var coins : int = 0
+var global_coins : int = 0
 var kmh : int = 0
 var players : Dictionary = {
 		"police_car": {
