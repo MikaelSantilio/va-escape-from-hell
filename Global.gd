@@ -22,3 +22,8 @@ var players : Dictionary = {
 		}
 	}
 var vehicle_selected : Dictionary = players["monster"]
+var coin_sound = load("res://assets/objects/CoinSound.tscn").instance()
+
+func play_coin_sound():
+	coin_sound.play()
+	print("Sound play")

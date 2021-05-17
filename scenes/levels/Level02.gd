@@ -20,4 +20,6 @@ func _ready():
 	# Set Pause Menu
 	var PauseInterface = load("res://scenes/menu/PauseInterface.tscn").instance()
 	add_child(PauseInterface)
-	move_child(PauseInterface, 0)
+	#move_child(PauseInterface, 0)
+	
+	add_child(Global.coin_sound)

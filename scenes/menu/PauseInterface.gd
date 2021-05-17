@@ -21,3 +21,11 @@ func set_paused(value: bool) -> void:
 	scene_tree.paused = value
 	pause_overlay.visible = value
 	print(pause_overlay.visible)
+
+
+func _on_Button_pressed():
+	print("pressed")
+
+
+func _on_Button_button_up():
+	print("button up")

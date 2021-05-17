@@ -24,7 +24,7 @@ tracks/0/keys = {
 
 [node name="FallingPlatform" type="KinematicBody2D"]
 position = Vector2( 203.417, 279.698 )
-collision_layer = 8
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

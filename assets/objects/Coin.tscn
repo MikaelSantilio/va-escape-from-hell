@@ -79,12 +79,13 @@ tracks/1/keys = {
 [node name="Coin" type="Area2D"]
 modulate = Color( 1, 1, 1, 0.682538 )
 position = Vector2( 0.0371628, -25.4846 )
+collision_layer = 0
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "coin"
-frame = 4
+frame = 5
 speed_scale = 1.051
 playing = true
 

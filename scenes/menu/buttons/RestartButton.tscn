@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/themes/non-selected-default.tres" type="StyleBox" id=1]
+[ext_resource path="res://scenes/menu/buttons/RestartButton.gd" type="Script" id=2]
+[ext_resource path="res://scenes/themes/selected-button-default.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+outline_size = 1
+outline_color = Color( 0.847059, 0.886275, 0.133333, 1 )
+font_data = ExtResource( 4 )
+
+[node name="RestartButton" type="Button"]
+margin_right = 228.0
+margin_bottom = 33.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Restart"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="." to="." method="_on_RestartButton_button_up"]
